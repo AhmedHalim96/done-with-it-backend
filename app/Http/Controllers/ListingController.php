@@ -47,7 +47,9 @@ class ListingController extends Controller
      */
     public function show(int $id)
     {
-        return response()->json(Listing::find($id));
+        $listing = Listing::find($id);
+        if (!$listing) return response()->json(["message" => "Listing Not Found"], 404);
+        return response()->json($listing);
     }
 
     /**
@@ -86,9 +88,7 @@ class ListingController extends Controller
     public function destroy(int $id)
     {
         $listing = Listing::find($id);
-       if ( $listing->delete()) return response()->json(["Internal Server Error"],500);
-       return  response()->json(["deletedListed" => $listing->id]);
-
-
+        if (!$listing->delete()) return response()->json(["Internal Server Error"],500);
+        return  response()->json(["deletedListed" => $listing->id]);
     }
 }
