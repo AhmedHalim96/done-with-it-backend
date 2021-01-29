@@ -122,6 +122,16 @@
       <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
       <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
       <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/vendor/justinrainbow/json-schema" />
+      <path value="$PROJECT_DIR$/vendor/react/promise" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/symfony/filesystem" />
+      <path value="$PROJECT_DIR$/vendor/seld/phar-utils" />
+      <path value="$PROJECT_DIR$/vendor/seld/jsonlint" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-ide-helper" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/reflection-docblock" />
     </include_path>
   </component>
   <component name="ProjectId" id="1njLDDncqETyzFhMigR61Kb29bw" />
@@ -133,7 +143,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="Laravel.SettingsForm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
@@ -150,7 +160,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1611898447785</updated>
-      <workItem from="1611898452487" duration="1639000" />
+      <workItem from="1611898452487" duration="3372000" />
     </task>
     <servers />
   </component>
@@ -158,17 +168,21 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="405" y="185" width="1031" height="708" key="SettingsEditor" timestamp="1611898732299">
+    <state x="748" y="327" width="428" height="458" key="FileChooserDialogImpl" timestamp="1611901486123">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="405" y="185" width="1031" height="708" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1611898732299" />
+    <state x="748" y="327" width="428" height="458" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1611901486123" />
+    <state x="405" y="185" width="1031" height="708" key="SettingsEditor" timestamp="1611901689134">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="405" y="185" width="1031" height="708" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1611901689134" />
     <state x="622" y="260" key="run.anything.popup" timestamp="1611899112727">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="622" y="260" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1611899112727" />
-    <state x="623" y="264" width="672" height="678" key="search.everywhere.popup" timestamp="1611899769486">
+    <state x="623" y="264" width="672" height="678" key="search.everywhere.popup" timestamp="1611901728331">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="623" y="264" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1611899769486" />
+    <state x="623" y="264" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1611901728331" />
   </component>
 </project>
