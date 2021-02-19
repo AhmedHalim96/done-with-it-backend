@@ -17,7 +17,10 @@ class CreateListingsTable extends Migration
             $table->id();
             $table->string("title", 55);
             $table->text("description")->nullable();
-            $table->text("photos");
+            $table->text("photo");
+            $table->foreignId("category_id")
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -24,6 +24,10 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereTitle($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @property string $photo
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing wherePhoto($value)
+ * @property int $category_id
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing whereCategoryId($value)
  */
 class Listing extends Model
 {

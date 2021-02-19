@@ -31,9 +31,10 @@ class ListingController extends Controller
         $listing = new Listing;
         $listing->title = $request->title;
         $listing->description = $request->description;
-        $photoPath = $request->file("photos")->store("listing_photos");
-        $listing->photos = $photoPath;
-        if (!$listing->save()){
+        $photoPath = $request->file("photo")->store("listing_photos");
+        $listing->category_id = $request->category_id;
+        $listing->photo = $photoPath;
+        if (!$listing->save()) {
             return response()->json(["message" => "Something Wrong happened"], 500);
         }
         return response()->json($listing);
@@ -48,7 +49,10 @@ class ListingController extends Controller
     public function show(int $id)
     {
         $listing = Listing::find($id);
-        if (!$listing) return response()->json(["message" => "Listing Not Found"], 404);
+        if (!$listing) {
+            return response()->json(["message" => "Listing Not Found"], 404);
+        }
+
         return response()->json($listing);
     }
 
@@ -62,17 +66,21 @@ class ListingController extends Controller
     public function update(Request $request, int $id)
     {
         $listing = Listing::find($id);
-        if ($request->title) $listing->title = $request->title;
+        if ($request->title) {
+            $listing->title = $request->title;
+        }
 
-        if ($request->description) $listing->description = $request->description;
+        if ($request->description) {
+            $listing->description = $request->description;
+        }
 
-       if($request->photos) {
-           Storage::delete($listing->photos);
-           $photoPath = $request->file("photos")->store("listing_photos");
-           $listing->photos = $photoPath;
-       }
+        if ($request->photos) {
+            Storage::delete($listing->photos);
+            $photoPath = $request->file("photos")->store("listing_photos");
+            $listing->photos = $photoPath;
+        }
 
-        if (!$listing->save()){
+        if (!$listing->save()) {
             return response()->json(["message" => "Something Wrong happened"], 500);
         }
         return response()->json($listing);
@@ -88,7 +96,10 @@ class ListingController extends Controller
     public function destroy(int $id)
     {
         $listing = Listing::find($id);
-        if (!$listing->delete()) return response()->json(["Internal Server Error"],500);
-        return  response()->json(["deletedListed" => $listing->id]);
+        if (!$listing->delete()) {
+            return response()->json(["Internal Server Error"], 500);
+        }
+
+        return response()->json(["deletedListed" => $listing->id]);
     }
 }
