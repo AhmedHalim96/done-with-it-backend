@@ -16,6 +16,7 @@ class CreateListingsTable extends Migration
         Schema::create('listings', function (Blueprint $table) {
             $table->id();
             $table->string("title", 55);
+            $table->integer("price");
             $table->text("description")->nullable();
             $table->text("photo");
             $table->foreignId("category_id")
