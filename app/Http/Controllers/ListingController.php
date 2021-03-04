@@ -31,7 +31,9 @@ class ListingController extends Controller
         $listing = new Listing;
         $listing->title = $request->title;
         $listing->description = $request->description;
-        $photoPath = $request->file("photo")->store("listing_photos");
+        $listing->price = $request->price;
+        $photoPath = $request->file('photo')->store('listings/photos');
+
         $listing->category_id = $request->category_id;
         $listing->photo = $photoPath;
         if (!$listing->save()) {
@@ -52,6 +54,9 @@ class ListingController extends Controller
         if (!$listing) {
             return response()->json(["message" => "Listing Not Found"], 404);
         }
+
+        $listing['category'] = $listing->category;
+        unset($listing->category_id);
 
         return response()->json($listing);
     }
