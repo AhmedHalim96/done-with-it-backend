@@ -68,7 +68,7 @@ class ListingController extends Controller
      * @param  int  $id
      * @return JsonResponse
      */
-    public function update(Request $request, int $id)
+    public function update(int $id, Request $request)
     {
         $listing = Listing::find($id);
         if ($request->title) {
@@ -79,10 +79,10 @@ class ListingController extends Controller
             $listing->description = $request->description;
         }
 
-        if ($request->photos) {
-            Storage::delete($listing->photos);
-            $photoPath = $request->file("photos")->store("listing_photos");
-            $listing->photos = $photoPath;
+        if ($request->photo) {
+            Storage::delete($listing->photo);
+            $photoPath = $request->file("photo")->store("listings/photos");
+            $listing->photo = $photoPath;
         }
 
         if (!$listing->save()) {
