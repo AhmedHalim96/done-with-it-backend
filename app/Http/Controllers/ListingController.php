@@ -104,7 +104,8 @@ class ListingController extends Controller
         if (!$listing->delete()) {
             return response()->json(["Internal Server Error"], 500);
         }
+        Storage::delete($listing->photo);
 
-        return response()->json(["deletedListed" => $listing->id]);
+        return response()->json(["id" => $listing->id]);
     }
 }
