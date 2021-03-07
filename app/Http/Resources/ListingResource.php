@@ -21,7 +21,7 @@ class ListingResource extends JsonResource
             "description" => ($this->description) ? $this->description : NULL,
             "photo" => $this->photo,
             "category" => ($this->category)? new CategoryResource($this->category) : NULL,
-            "creted_at" => $this->created_at
+            "created_at" => $this->created_at
         ];
     }
 }
