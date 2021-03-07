@@ -22,10 +22,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::prefix("listings")->group(function () {
     Route::get("/", [ListingController::class, "index"]);
-    Route::get("/{id}", [ListingController::class, "show"]);
+    Route::get("/{listing}", [ListingController::class, "show"]);
     Route::post('/', [ListingController::class, "store"]);
-    Route::patch("/{id}", [ListingController::class, "update"]);
-    Route::delete("/{id}", [ListingController::class, "destroy"]);
+    Route::patch("/{listing}", [ListingController::class, "update"]);
+    Route::delete("/{listing}", [ListingController::class, "destroy"]);
 });
 
 Route::get('/categories', [CategoryController::class, "index"]);

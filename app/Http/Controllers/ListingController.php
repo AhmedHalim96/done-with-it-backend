@@ -2,9 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\CategoryResource;
+use App\Http\Resources\ListingResource;
 use App\Models\Listing;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
 use Storage;
 
@@ -13,99 +18,76 @@ class ListingController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return JsonResponse
+     * @return AnonymousResourceCollection
      */
-    public function index()
+    protected function index()
     {
-        return response()->json(Listing::all());
+        $categories = Listing::all();
+        return ListingResource::collection($categories);
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return JsonResponse
+     * @return ListingResource
      */
     public function store(Request $request)
     {
-        $listing = new Listing;
-        $listing->title = $request->title;
-        $listing->description = $request->description;
-        $listing->price = $request->price;
-        $photoPath = $request->file('photo')->store('listings/photos');
-
-        $listing->category_id = $request->category_id;
-        $listing->photo = $photoPath;
-        if (!$listing->save()) {
-            return response()->json(["message" => "Something Wrong happened"], 500);
+        $data = $request->all();
+        if($request->hasFile('photo')){
+            $photoPath = $request->file('photo')->store('listings/photos');
+            $data['photo'] = $photoPath;
         }
-        return response()->json($listing);
+        $listing = Listing::create($data);
+
+        return new ListingResource($listing);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return JsonResponse
+     * @param Listing $listing
+     * @return ListingResource
      */
-    public function show(int $id)
+    public function show(Listing $listing)
     {
-        $listing = Listing::find($id);
-        if (!$listing) {
-            return response()->json(["message" => "Listing Not Found"], 404);
-        }
-
-        $listing['category'] = $listing->category;
-        unset($listing->category_id);
-
-        return response()->json($listing);
+        return new ListingResource($listing);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param Request $request
-     * @param  int  $id
-     * @return JsonResponse
+     * @param Listing $listing
+     * @return ListingResource
      */
-    public function update(int $id, Request $request)
+    public function update(Listing $listing, Request $request)
     {
-        $listing = Listing::find($id);
-        if ($request->title) {
-            $listing->title = $request->title;
-        }
-
-        if ($request->description) {
-            $listing->description = $request->description;
-        }
-
-        if ($request->photo) {
+        $data = $request->all();
+        if($request->hasFile('photo')){
             Storage::delete($listing->photo);
-            $photoPath = $request->file("photo")->store("listings/photos");
-            $listing->photo = $photoPath;
+            $photoPath = $request->file('photo')->store('listings/photos');
+            $data['photo'] = $photoPath;
         }
 
-        if (!$listing->save()) {
-            return response()->json(["message" => "Something Wrong happened"], 500);
-        }
-        return response()->json($listing);
+       $listing->update($data);
+        return new ListingResource($listing);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param int $id
-     * @return JsonResponse
+     * @param Listing $listing
+     * @return Response
      * @throws \Exception
      */
-    public function destroy(int $id)
+    public function destroy(Listing $listing)
     {
-        $listing = Listing::find($id);
-        if (!$listing->delete()) {
-            return response()->json(["Internal Server Error"], 500);
-        }
+        $listing->delete();
         Storage::delete($listing->photo);
 
-        return response()->json(["id" => $listing->id]);
+         return response(null, \Symfony\Component\HttpFoundation\Response::HTTP_NO_CONTENT);
+
     }
 }
