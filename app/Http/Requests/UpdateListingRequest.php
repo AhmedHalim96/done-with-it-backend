@@ -24,11 +24,11 @@ class UpdateListingRequest extends FormRequest
     public function rules()
     {
         return [
-            "title" => "required|min:5|max:200",
-            "price" => "required",
+            "title" => "min:5|max:200",
+            "price" => "numeric",
             "description" => "min:5",
-            "photo" => "required",
-            "category_id" => "required"
+            "photo" => "",
+            "category_id" => "",
         ];
     }
 }
