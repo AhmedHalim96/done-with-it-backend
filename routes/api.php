@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ListingController;
+use App\Http\Controllers\V1\CategoryController;
+use App\Http\Controllers\V1\ListingController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 

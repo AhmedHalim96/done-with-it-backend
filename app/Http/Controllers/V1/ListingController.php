@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\V1;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreListingRequest;
 use App\Http\Requests\UpdateListingRequest;
 use App\Http\Resources\CategoryResource;
@@ -37,7 +38,7 @@ class ListingController extends Controller
     public function store(StoreListingRequest $request)
     {
         $data = $request->all();
-        if($request->hasFile('photo')){
+        if ($request->hasFile('photo')) {
             $photoPath = $request->file('photo')->store('listings/photos');
             $data['photo'] = $photoPath;
         }
@@ -67,13 +68,13 @@ class ListingController extends Controller
     public function update(Listing $listing, UpdateListingRequest $request)
     {
         $data = $request->all();
-        if($request->hasFile('photo')){
+        if ($request->hasFile('photo')) {
             Storage::delete($listing->photo);
             $photoPath = $request->file('photo')->store('listings/photos');
             $data['photo'] = $photoPath;
         }
 
-       $listing->update($data);
+        $listing->update($data);
         return new ListingResource($listing);
     }
 
@@ -89,7 +90,7 @@ class ListingController extends Controller
         $listing->delete();
         Storage::delete($listing->photo);
 
-         return response(null, \Symfony\Component\HttpFoundation\Response::HTTP_NO_CONTENT);
+        return response(null, \Symfony\Component\HttpFoundation\Response::HTTP_NO_CONTENT);
 
     }
 }
