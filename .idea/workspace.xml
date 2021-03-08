@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="64e115bb-d2b6-468d-adc6-92191a8f76f6" name="Default Changelist" comment="" />
+    <list default="true" id="64e115bb-d2b6-468d-adc6-92191a8f76f6" name="Default Changelist" comment="fixing a typo">
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/StoreListingRequest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/UpdateListingRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ListingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ListingController.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -138,16 +158,19 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1njLDDncqETyzFhMigR61Kb29bw" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
@@ -166,28 +189,115 @@
       <updated>1611898447785</updated>
       <workItem from="1611898452487" duration="6919000" />
       <workItem from="1615098568815" duration="21000" />
+      <workItem from="1615120673903" duration="9406000" />
+      <workItem from="1615196422903" duration="11000" />
+      <workItem from="1615204673123" duration="343000" />
     </task>
+    <task id="LOCAL-00001" summary="ignore .idea directory">
+      <created>1615120917969</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1615120917969</updated>
+    </task>
+    <task id="LOCAL-00002" summary="using CategoryResource">
+      <created>1615122078351</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1615122078351</updated>
+    </task>
+    <task id="LOCAL-00003" summary="using ListingResource">
+      <created>1615129972309</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1615129972309</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Removing duplicate key">
+      <created>1615130410169</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1615130410169</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fixing a typo">
+      <created>1615130450190</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1615130450190</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="ignore .idea directory" />
+    <MESSAGE value="using CategoryResource" />
+    <MESSAGE value="using ListingResource" />
+    <MESSAGE value="Removing duplicate key" />
+    <MESSAGE value="fixing a typo" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixing a typo" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="748" y="327" width="428" height="458" key="FileChooserDialogImpl" timestamp="1611901486123">
+    <state x="698" y="327" width="528" height="458" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1615130100527">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="748" y="327" width="428" height="458" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1611901486123" />
-    <state x="405" y="185" width="1031" height="708" key="SettingsEditor" timestamp="1611901689134">
+    <state x="698" y="327" width="528" height="458" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1615130100527" />
+    <state x="0" y="0" width="1496" height="1075" key="FileChooserDialogImpl" timestamp="1615204969856">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="405" y="185" width="1031" height="708" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1611901689134" />
+    <state x="0" y="0" width="1496" height="1075" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1615204969856" />
+    <state x="405" y="185" width="1031" height="708" key="SettingsEditor" timestamp="1615130634080">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="405" y="185" width="1031" height="708" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1615130634080" />
     <state x="622" y="260" key="run.anything.popup" timestamp="1611899112727">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="622" y="260" key="run.anything.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1611899112727" />
-    <state x="623" y="264" width="672" height="678" key="search.everywhere.popup" timestamp="1611901728331">
+    <state x="623" y="264" width="672" height="678" key="search.everywhere.popup" timestamp="1615205015685">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="623" y="264" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1611901728331" />
+    <state x="623" y="264" width="672" height="678" key="search.everywhere.popup/0.0.1920.1080@0.0.1920.1080" timestamp="1615205015685" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/../done-with-it-frontend/src/app/pages/ListingDetailsPage.js</url>
+          <line>14</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

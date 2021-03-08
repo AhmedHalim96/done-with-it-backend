@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreListingRequest;
+use App\Http\Requests\UpdateListingRequest;
 use App\Http\Resources\CategoryResource;
 use App\Http\Resources\ListingResource;
 use App\Models\Listing;
@@ -29,10 +31,10 @@ class ListingController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
+     * @param StoreListingRequest $request
      * @return ListingResource
      */
-    public function store(Request $request)
+    public function store(StoreListingRequest $request)
     {
         $data = $request->all();
         if($request->hasFile('photo')){
@@ -58,11 +60,11 @@ class ListingController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
      * @param Listing $listing
+     * @param UpdateListingRequest $request
      * @return ListingResource
      */
-    public function update(Listing $listing, Request $request)
+    public function update(Listing $listing, UpdateListingRequest $request)
     {
         $data = $request->all();
         if($request->hasFile('photo')){
