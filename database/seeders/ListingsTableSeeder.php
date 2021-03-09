@@ -18,7 +18,6 @@ class ListingsTableSeeder extends Seeder
             "title" => "Couch",
             "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam soluta libero vitae magni, saepe deleniti non voluptate quaerat veniam? Fuga ipsam incidunt deleniti doloremque quis hic est in doloribus officia?",
             "price" => 100,
-            "photo" => "listings/photos/couch-photo.jpg",
             "category_id" => 1,
         ]);
         $l1->save();
@@ -27,7 +26,6 @@ class ListingsTableSeeder extends Seeder
             "title" => "Limited edition red jacket",
             "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam soluta libero vitae magni, saepe deleniti non voluptate quaerat veniam? Fuga ipsam incidunt deleniti doloremque quis hic est in doloribus officia?",
             "price" => 100,
-            "photo" => "listings/photos/jacket-photo.jpg",
             "category_id" => 2,
         ]);
         $l2->save();
@@ -36,7 +34,6 @@ class ListingsTableSeeder extends Seeder
             "title" => "Couch",
             "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam soluta libero vitae magni, saepe deleniti non voluptate quaerat veniam? Fuga ipsam incidunt deleniti doloremque quis hic est in doloribus officia?",
             "price" => 100,
-            "photo" => "listings/photos/couch-photo.jpg",
             "category_id" => 1,
         ]);
         $l3->save();
@@ -45,7 +42,6 @@ class ListingsTableSeeder extends Seeder
             "title" => "Limited edition red jacket",
             "description" => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam soluta libero vitae magni, saepe deleniti non voluptate quaerat veniam? Fuga ipsam incidunt deleniti doloremque quis hic est in doloribus officia?",
             "price" => 100,
-            "photo" => "listings/photos/jacket-photo.jpg",
             "category_id" => 2,
         ]);
         $l4->save();
