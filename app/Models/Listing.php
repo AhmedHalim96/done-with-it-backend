@@ -28,6 +28,10 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|Listing wherePhoto($value)
  * @property int $category_id
  * @method static \Illuminate\Database\Eloquent\Builder|Listing whereCategoryId($value)
+ * @property int $price
+ * @property-read \App\Models\Category $category
+ * @property-read int|null $photos_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Listing wherePrice($value)
  */
 class Listing extends Model
 {
