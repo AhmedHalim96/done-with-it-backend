@@ -32,9 +32,15 @@ use Illuminate\Database\Eloquent\Model;
 class Listing extends Model
 {
     use HasFactory;
-    protected $fillable=["title", "price", "photo", "description", "category_id"];
+    protected $fillable = ["title", "price", "description", "category_id"];
+
     public function category()
     {
         return $this->belongsTo(Category::class);
     }
+    public function photos()
+    {
+        return $this->hasMany(Photo::class);
+    }
+
 }
