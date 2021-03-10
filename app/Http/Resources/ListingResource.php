@@ -18,10 +18,10 @@ class ListingResource extends JsonResource
             "id" => $this->id,
             "title" => $this->title,
             "price" => $this->price,
-            "description" => ($this->description) ? $this->description : NULL,
-            "photo" => $this->photo,
-            "category" => ($this->category)? new CategoryResource($this->category) : NULL,
-            "created_at" => $this->created_at
+            "description" => ($this->description) ? $this->description : null,
+            "photos" => ($this->photos) ? PhotoResource::collection($this->photos) : null,
+            "category" => ($this->category) ? new CategoryResource($this->category) : null,
+            "created_at" => $this->created_at,
         ];
     }
 }

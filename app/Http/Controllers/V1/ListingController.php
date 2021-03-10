@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateListingRequest;
 use App\Http\Resources\CategoryResource;
 use App\Http\Resources\ListingResource;
 use App\Models\Listing;
+use App\Models\Photo;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\JsonResponse;
@@ -38,12 +39,16 @@ class ListingController extends Controller
     public function store(StoreListingRequest $request)
     {
         $data = $request->all();
-        if ($request->hasFile('photo')) {
-            $photoPath = $request->file('photo')->store('listings/photos');
-            $data['photo'] = $photoPath;
-        }
+        $photos = $request->file("photos");
+
         $listing = Listing::create($data);
 
+        if ($photos) {
+            foreach ($photos as $photo) {
+                $photoPath = $photo->store('listings/photos');
+                Photo::create(["url" => $photoPath, "listing_id" => $listing->id]);
+            }
+        }
         return new ListingResource($listing);
     }
 
