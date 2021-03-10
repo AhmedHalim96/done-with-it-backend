@@ -92,8 +92,12 @@ class ListingController extends Controller
      */
     public function destroy(Listing $listing)
     {
+        foreach ($listing->photos as $photo) {
+            $photo->delete();
+            Storage::delete($photo->url);
+        }
+
         $listing->delete();
-        Storage::delete($listing->photo);
 
         return response(null, \Symfony\Component\HttpFoundation\Response::HTTP_NO_CONTENT);
 
