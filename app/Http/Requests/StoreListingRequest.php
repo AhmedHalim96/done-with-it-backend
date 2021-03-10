@@ -24,11 +24,12 @@ class StoreListingRequest extends FormRequest
     public function rules()
     {
         return [
-            "title" => "required|min:5|max:200",
+            "title" => "bail|required|min:5|max:200",
             "price" => "required",
             "description" => "min:5",
-            "photo" => "required",
-            "category_id" => "required"
+            "photos" => "bail|required|array|min:1|max:5",
+            "photos.*" => "bail|file|mimes:jpg,jpeg,png|max:2000",
+            "category_id" => "required",
         ];
     }
 }
