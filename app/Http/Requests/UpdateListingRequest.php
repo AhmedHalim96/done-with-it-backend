@@ -24,11 +24,14 @@ class UpdateListingRequest extends FormRequest
     public function rules()
     {
         return [
-            "title" => "min:5|max:200",
+            "title" => "bail|min:5|max:200",
             "price" => "numeric",
             "description" => "min:5",
-            "photo" => "",
-            "category_id" => "",
+            "photo" => "bail|array|min:1|max:5",
+            "photos.*" => "bail|file|mimes:jpg,jpeg,png|max:2000",
+            "deleted_photos" => "bail|array|min:1",
+            "deleted_photos.*" => "numeric",
+            "category_id" => "numeric",
         ];
     }
 }
