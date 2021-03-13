@@ -73,10 +73,20 @@ class ListingController extends Controller
     public function update(Listing $listing, UpdateListingRequest $request)
     {
         $data = $request->all();
-        if ($request->hasFile('photo')) {
-            Storage::delete($listing->photo);
-            $photoPath = $request->file('photo')->store('listings/photos');
-            $data['photo'] = $photoPath;
+        $photos = $request->file("photos");
+        if ($request->hasFile('photos')) {
+            foreach ($photos as $photo) {
+                $photoPath = $photo->store('listings/photos');
+                Photo::create(["url" => $photoPath, "listing_id" => $listing->id]);
+            }
+        }
+
+        if ($request->deleted_photos) {
+            foreach ($request->deleted_photos as $photo) {
+                $photoPath = Photo::find($photo)->url;
+                Photo::destroy($photo);
+                Storage::delete($photoPath);
+            }
         }
 
         $listing->update($data);
