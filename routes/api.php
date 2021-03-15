@@ -20,12 +20,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::prefix("listings")->group(function () {
-    Route::get("/", [ListingController::class, "index"]);
-    Route::get("/{listing}", [ListingController::class, "show"]);
-    Route::post('/', [ListingController::class, "store"]);
-    Route::patch("/{listing}", [ListingController::class, "update"]);
-    Route::delete("/{listing}", [ListingController::class, "destroy"]);
-});
+Route::apiResource("listings", ListingController::class);
 
 Route::get('/categories', [CategoryController::class, "index"]);
