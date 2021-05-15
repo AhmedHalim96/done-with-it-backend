@@ -26,7 +26,7 @@ class ListingController extends Controller
      */
     protected function index()
     {
-        $categories = Listing::all();
+        $categories = Listing::paginate(10);
         return ListingResource::collection($categories);
     }
 
