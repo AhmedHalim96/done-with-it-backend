@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\V1\CategoryController;
 use App\Http\Controllers\V1\ListingController;
 use Illuminate\Http\Request;
@@ -19,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/user/register', [UserController::class, 'register']);
 
 Route::apiResource("listings", ListingController::class);
 
