@@ -24,6 +24,7 @@ class UserController extends Controller
         $user = User::create($input);
 
         $success['token'] = $user->createToken('MyApp')->plainTextToken;
+        $success['id'] = $user->id;
         $success['name'] = $user->name;
         $success['email'] = $user->email;
 
@@ -42,6 +43,7 @@ class UserController extends Controller
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $user = Auth::user();
             $success['token'] = $user->createToken('MyApp')->plainTextToken;
+            $success['id'] = $user->id;
             $success['name'] = $user->name;
             $success['email'] = $user->email;
 
