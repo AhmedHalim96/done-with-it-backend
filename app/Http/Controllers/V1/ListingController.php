@@ -9,6 +9,7 @@ use App\Http\Resources\CategoryResource;
 use App\Http\Resources\ListingResource;
 use App\Models\Listing;
 use App\Models\Photo;
+use Auth;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\JsonResponse;
@@ -41,7 +42,9 @@ class ListingController extends Controller
         $data = $request->all();
         $photos = $request->file("photos");
 
-        $listing = Listing::create($data);
+        $listing = new Listing($data);
+        $listing->user_id = Auth::user()->id;
+        $listing->save();
 
         if ($photos) {
             foreach ($photos as $photo) {
