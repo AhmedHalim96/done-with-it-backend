@@ -24,6 +24,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('/user/register', [UserController::class, 'register']);
 Route::post('/user/login', [UserController::class, 'login']);
 
-Route::apiResource("listings", ListingController::class);
-
 Route::get('/categories', [CategoryController::class, "index"]);
+
+// Route::apiResource("listings", ListingController::class);
+Route::prefix("listings")->group(function () {
+    Route::get("/", [ListingController::class, "index"]);
+    Route::get("/{listing}", [ListingController::class, "show"]);
+    Route::group(['middleware' => ['auth:sanctum']], function () {
+        Route::post('/', [ListingController::class, "store"]);
+        Route::patch("/{listing}", [ListingController::class, "update"]);
+        Route::delete("/{listing}", [ListingController::class, "destroy"]);
+    });
+});
