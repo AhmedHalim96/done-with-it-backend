@@ -75,6 +75,11 @@ class ListingController extends Controller
      */
     public function update(Listing $listing, UpdateListingRequest $request)
     {
+        // checking if the user own this listings
+        if ($listing->user_id != Auth::user()->id) {
+            return response()->json(['message' => 'Not Authorized!'], 403);
+        }
+
         $data = $request->all();
         $photos = $request->file("photos");
         if ($request->hasFile('photos')) {
@@ -105,6 +110,11 @@ class ListingController extends Controller
      */
     public function destroy(Listing $listing)
     {
+
+        // checking if the user own this listings
+        if ($listing->user_id != Auth::user()->id) {
+            return response()->json(['message' => 'Not Authorized!'], 403);
+        }
         foreach ($listing->photos as $photo) {
             $photo->delete();
             Storage::delete($photo->url);
